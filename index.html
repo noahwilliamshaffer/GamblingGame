@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegas Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="game-title">🎰 VEGAS SLOTS 🎰</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">🌙</button>
+            </div>
+        </header>
+
+        <div class="slot-machine">
+            <div class="machine-frame">
+                <div class="paylines-overlay">
+                    <div class="payline" data-line="1"></div>
+                    <div class="payline" data-line="2"></div>
+                    <div class="payline" data-line="3"></div>
+                    <div class="payline" data-line="4"></div>
+                    <div class="payline" data-line="5"></div>
+                </div>
+                
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="symbols"></div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="symbols"></div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="symbols"></div>
+                    </div>
+                    <div class="reel" id="reel4">
+                        <div class="symbols"></div>
+                    </div>
+                    <div class="reel" id="reel5">
+                        <div class="symbols"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="win-display">
+                <div class="win-amount" id="winAmount">0</div>
+                <div class="win-text">CREDITS WON</div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="info-panel">
+                <div class="balance-section">
+                    <div class="label">BALANCE</div>
+                    <div class="value" id="balance">1000</div>
+                </div>
+                <div class="bet-section">
+                    <div class="label">BET</div>
+                    <div class="value" id="currentBet">1</div>
+                </div>
+                <div class="lines-section">
+                    <div class="label">LINES</div>
+                    <div class="value" id="activeLinesCount">10</div>
+                </div>
+            </div>
+
+            <div class="betting-controls">
+                <div class="bet-controls">
+                    <button class="bet-btn" id="betMinus" aria-label="Decrease bet">−</button>
+                    <span class="bet-display">BET: <span id="betAmount">1</span></span>
+                    <button class="bet-btn" id="betPlus" aria-label="Increase bet">+</button>
+                </div>
+                
+                <button class="spin-btn" id="spinBtn">
+                    <span class="spin-text">SPIN</span>
+                    <div class="spin-cost">Cost: <span id="spinCost">10</span></div>
+                </button>
+                
+                <button class="max-bet-btn" id="maxBetBtn">MAX BET</button>
+            </div>
+        </div>
+
+        <div class="paytable-container">
+            <button class="paytable-toggle" id="paytableToggle">PAYTABLE</button>
+            <div class="paytable" id="paytable">
+                <h3>PAYTABLE</h3>
+                <div class="payout-list">
+                    <div class="payout-item">
+                        <span class="symbols">🍒🍒🍒🍒🍒</span>
+                        <span class="multiplier">1000x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">🍒🍒🍒🍒</span>
+                        <span class="multiplier">100x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">🍒🍒🍒</span>
+                        <span class="multiplier">20x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">💎💎💎💎💎</span>
+                        <span class="multiplier">500x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">💎💎💎💎</span>
+                        <span class="multiplier">50x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">💎💎💎</span>
+                        <span class="multiplier">10x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">🔔🔔🔔🔔🔔</span>
+                        <span class="multiplier">200x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">🔔🔔🔔🔔</span>
+                        <span class="multiplier">25x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">🔔🔔🔔</span>
+                        <span class="multiplier">5x</span>
+                    </div>
+                    <div class="payout-item">
+                        <span class="symbols">⭐⭐⭐</span>
+                        <span class="multiplier">3x</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sound-toggle">
+            <button id="soundToggle" class="sound-btn">🔊</button>
+        </div>
+    </div>
+
+    <!-- Audio elements for sound effects -->
+    <audio id="spinSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmQfCkKTzPDWjC4HH27D7+OZRQ4LRKTi8LhkHggzjdn" type="audio/wav">
+    </audio>
+    <audio id="winSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm1mIBAAAAAABAAEABBBAABBBAABBAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmQfCkKTzPDWjC4HH27D7+OZRQ4LRKTi8LhkHggzjdn" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html> 
